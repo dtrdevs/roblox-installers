@@ -1,2 +1,11 @@
-# roblox-installers
-installs roblox on ur mac
+# arm
+
+```
+
+```
+
+# intel
+
+```
+
+```
