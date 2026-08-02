@@ -1,7 +1,7 @@
 # arm
 
 ``` bash
-curl -fsSL https://raw.githubusercontent.com/dtrdevs/roblox-installers/main/arm.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dtrdevs/roblox-installers/refs/heads/main/arm.sh | bash
 ```
 
 # intel
