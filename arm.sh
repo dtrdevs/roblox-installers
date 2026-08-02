@@ -11,7 +11,7 @@ set -euo pipefail
     exit 1
 }
 
-BASE="https://setup.rbxcdn.com/channel/zlive/mac/arm64"
+BASE="https://setup.rbxcdn.com/channel/zmacarm64/mac/arm64"
 
 echo "Fetching latest version..."
 VERSION="$(curl -fsSL "$BASE/version")"
@@ -22,6 +22,10 @@ curl -fL "$BASE/${VERSION}-RobloxPlayer.zip" -o RobloxPlayer.zip
 echo "Extracting..."
 unzip -o RobloxPlayer.zip
 
-echo "Done."
+echo "Cleaning up..."
+rm -f RobloxPlayer.zip
+
+echo
+echo "Done!"
 echo "RobloxPlayer.app has been extracted to:"
 pwd
