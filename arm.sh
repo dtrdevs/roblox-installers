@@ -11,7 +11,7 @@ set -euo pipefail
     exit 1
 }
 
-BASE="https://setup.rbxcdn.com/channel/zmacarm64/mac/arm64"
+BASE="https://setup.rbxcdn.com/channel/zlive/mac/arm64"
 
 echo "Fetching latest version..."
 VERSION="$(curl -fsSL "$BASE/version")"
