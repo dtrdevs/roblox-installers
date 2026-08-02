@@ -1,31 +1,16 @@
 #!/bin/bash
-set -euo pipefail
-
-[[ "$(uname)" == "Darwin" ]] || {
-    echo "This script only supports macOS."
-    exit 1
-}
-
-[[ "$(uname -m)" == "arm64" ]] || {
-    echo "This script is intended for Apple Silicon Macs."
-    exit 1
-}
+set -e
 
 BASE="https://setup.rbxcdn.com/channel/zmacarm64/mac/arm64"
+VERSION=$(curl -fsSL "$BASE/version" | sed 's/^version-//')
 
-echo "Fetching latest version..."
-VERSION="$(curl -fsSL "$BASE/version")"
-
-echo "Downloading Roblox $VERSION..."
 curl -fL "$BASE/${VERSION}-RobloxPlayer.zip" -o RobloxPlayer.zip
+unzip -oq RobloxPlayer.zip
 
-echo "Extracting..."
-unzip -o RobloxPlayer.zip
+rm -rf "$HOME/Applications/RobloxPlayer.app"
+mkdir -p "$HOME/Applications"
+mv RobloxPlayer.app "$HOME/Applications/"
 
-echo "Cleaning up..."
-rm -f RobloxPlayer.zip
+rm RobloxPlayer.zip
 
-echo
-echo "Done!"
-echo "RobloxPlayer.app has been extracted to:"
-pwd
+echo "Installed to $HOME/Applications/RobloxPlayer.app"
